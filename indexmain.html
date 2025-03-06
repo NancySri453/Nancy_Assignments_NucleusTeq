@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Roll the Dice</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Trirong"
+    />
+    <link rel="stylesheet" href="style_main.css" />
+  </head>
+  <header>
+    <button class="hamburger" type="button" onclick="toggleSidebar()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </button>
+
+    <!--Sidebar-->
+    <div class="sidebar" id="sidebar">
+      <a href="index.html">Home</a>
+      <a href="#about">About</a>
+      <a href="#features">Features</a>
+      <a href="#Help">Help</a>
+      <a href="#contact">Contact</a>
+      <a href="indexmain.html">
+        <button id="nav_playbutton">Play Now</button>
+      </a>
+    </div>
+
+    <!--Overlay-->
+    <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+  </header>
+  <body>
+    <!-- Page Content -->
+    <div class="content" id="content">
+      <div id="game-title">
+        <img src="Dice main.png" alt="Dice" style="width: 80px" />
+        <h1 style="width: fit-content">ROLL THE DICE</h1>
+        <img src="Dice main.png" alt="Dice" style="width: 80px" />
+      </div>
+      <div class="Game_Interface">
+        <div class="player" id="player1">
+          <!-- <input type="text" id = "name1" value = "Player 1"> -->
+          <h2
+            style="font-family: poppins; font-size: xx-large"
+            id="Player_1"
+          ></h2>
+          <p style="font-family: poppins; font-size: x-large">
+            Saved Score : <span id="score1">0</span>
+          </p>
+          <p style="font-family: poppins; font-size: x-large">
+            Current Score : <span id="current1">0</span>
+          </p>
+          <div class="buttons">
+            <button id="Rollbutton">Roll Dice</button>
+            <button id="Savebutton">Save Score</button>
+          </div>
+        </div>
+
+        <div class="player" id="player2">
+          <!-- <input type="text" id = "name2" value = "Player 2"> -->
+          <h2
+            style="font-family: poppins; font-size: xx-large"
+            id="Player_2"
+          ></h2>
+          <p style="font-family: poppins; font-size: x-large">
+            Saved Score : <span id="score2">0</span>
+          </p>
+          <p style="font-family: poppins; font-size: x-large">
+            Current Score : <span id="current2">0</span>
+          </p>
+          <div class="buttons">
+            <button id="Rollbutton2">Roll Dice</button>
+            <button id="Savebutton2">Save Score</button>
+          </div>
+        </div>
+      </div>
+      <div class="Winner_popup" id="Winner"></div>
+      <div class="reset">
+        <button id="Resetbutton">Reset Game</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,196 @@
+body {
+  background-color: rgba(255, 0, 0, 0.5);
+  background-image: url(dice_reference2.jpg);
+  background-repeat: repeat;
+  background-size: auto;
+  background-position: top left;
+  position: relative;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* height: 100vh;  */
+  margin: 0; /* Removes default margin */
+  animation: moveBackground 40s linear infinite;
+  /* border: 5px solid black;  */
+  box-sizing: border-box; /* Ensures padding doesn't affect the width/height */
+}
+.Game_Interface {
+  margin: auto;
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  height: 60%;
+  width: 60%;
+}
+@media (max-width: 768) {
+  .Game_Interface {
+    display: flex;
+    flex-direction: column;
+  }
+  .player {
+    width: 300px;
+  }
+}
+.Winner_popup {
+  position: absolute;
+  width: 50%;
+  height: 10%;
+  align-content: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(12, 164, 55, 0.7);
+  padding: 20px;
+  border-radius: 10px;
+  color: white;
+  font-size: 24px;
+  text-align: center;
+  display: none;
+  /* backdrop-filter: blur(2px,2px,2px); */
+  /* filter: blur(2px); */
+}
+.active2 {
+  display: block;
+}
+.player {
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
+  height: 40vh;
+  align-items: center;
+  background-color: rgb(246, 232, 177);
+  border: 2px solid black;
+  border-radius: 20px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  margin: 0 auto;
+}
+.Game_Interface .player {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.Player-title,
+p,
+.buttons {
+  display: block;
+  margin-top: 0;
+}
+button {
+  padding: 15px 30px;
+  font-size: 18px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+button:hover {
+  background-color: #7bc486;
+}
+.sidebar {
+  height: 100vh;
+  width: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #333;
+  overflow-x: hidden;
+  transition: 0.3s;
+  padding-top: 60px;
+  z-index: 1000;
+}
+.sidebar a {
+  display: block;
+  color: rgb(255, 255, 255);
+  padding: 15px 20px;
+  text-decoration: none;
+  font-size: 18px;
+}
+.sidebar a:hover {
+  background-color: #575757;
+  border-radius: 5px;
+}
+.hamburger {
+  font-size: 30px;
+  cursor: pointer;
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  background: none;
+  border: none;
+  color: rgb(255, 255, 255);
+  z-index: 1000;
+  border: 3px solid #ff0000;
+}
+.hamburger div {
+  width: 35px;
+  height: 5px;
+  background-color: rgb(0, 0, 0);
+  margin: 6px 0;
+}
+.content {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0; /* Adjust when sidebar opens */
+  padding: 20px;
+  transition: margin-left 0.3s;
+}
+.sidebar.active {
+  width: 250px;
+}
+
+.content.active {
+  margin-left: 250px;
+}
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+.overlay.active {
+  display: block;
+}
+@keyframes moveBackground {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 50% 50%;
+  }
+}
+h1 {
+  font-family: "Poppins", serif;
+}
+.Head_View {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  margin: auto;
+  gap: 0px;
+  background: #ffff;
+  padding: 0px;
+  border-radius: 10px;
+}
+#game-title {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background-color: rgb(246, 232, 177);
+  border-radius: 5%;
+  box-shadow: 5px 5px 10px gray;
+}
