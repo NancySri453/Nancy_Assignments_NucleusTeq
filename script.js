@@ -30,9 +30,10 @@ roll1.addEventListener("click", () => {
   console.log(dice);
 
   if (dice === 1) {
-    currentScore = dice;
-    document.getElementById("current1").textContent = dice;
-    setTimeout(switchPlayer, 1500);
+    currentScore = 0;
+    // document.getElementById("current1").textContent = dice;
+    // setTimeout(switchPlayer, 1500);
+    switchPlayer();
   } else {
     currentScore += dice;
     document.getElementById("current1").textContent = currentScore;
@@ -47,8 +48,8 @@ roll2.addEventListener("click", () => {
   console.log(dice);
 
   if (dice === 1) {
-    currentScore = dice;
-    document.getElementById("current2").textContent = dice;
+    currentScore = 0;
+    // document.getElementById("current2").textContent = dice;
     switchPlayer();
   } else {
     currentScore += dice;
@@ -63,7 +64,7 @@ saveButton1.addEventListener("click", () => {
   score1 += currentScore;
   document.getElementById("score1").textContent = score1;
 
-  if (score1 >= 10) {
+  if (score1 >= 100) {
     winner.classList.add("active2");
     winner.textContent = `${player1name || "Player 1"} Wins!`;
     gamePlaying = false;
@@ -80,7 +81,7 @@ saveButton2.addEventListener("click", () => {
   score2 += currentScore;
   document.getElementById("score2").textContent = score2;
 
-  if (score2 >= 10) {
+  if (score2 >= 100) {
     winner.classList.add("active2");
     winner.textContent = `${player2name || "Player 2"} Wins!`;
     gamePlaying = false;
