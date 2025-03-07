@@ -1,3 +1,51 @@
+.vertical-bar-out{
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 100vh;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 5px;
+  z-index: -1;
+  filter: blur(2px);
+  border:2px solid #333;
+}
+.vertical-bar{
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 300px; 
+  height: 100vh;
+  /* background-color: white; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 5px;
+  z-index: -1;
+  p{
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: xx-large;
+    width: 300px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(1, 1, 1);
+    transition: background-color 0.3s ease;
+  }
+}
+video{
+  position: relative;
+  width: 300px;
+  height: auto;
+  display: none;
+  margin-bottom : 10px;
+}
 body {
   background-color: rgba(255, 0, 0, 0.5);
   background-image: url(dice_reference2.jpg);
@@ -16,14 +64,25 @@ body {
   /* border: 5px solid black;  */
   box-sizing: border-box; /* Ensures padding doesn't affect the width/height */
 }
-.Game_Interface {
-  margin: auto;
-  width: 90%;
+#game-title {
+  /* position: relative; */
   display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
-  height: 60%;
-  width: 60%;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  background-color: rgb(246, 232, 177);
+  box-shadow: 5px 5px 10px rgb(15, 14, 14);
+  width: 100%;
+  margin-top : 0;
+  /* z-index: -1; */
+}
+#diceMessage {
+  margin-top: 20px;
+  font-size: 24px;
+  background-color: white;
+  color: red;
+  font-family: 'Times New Roman', Times, serif;
+  padding: 5px;
 }
 @media (max-width: 768) {
   .Game_Interface {
@@ -33,6 +92,16 @@ body {
   .player {
     width: 300px;
   }
+}
+
+.Game_Interface {
+  margin: auto;
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  height: 60%;
+  width: 60%;
 }
 .Winner_popup {
   position: absolute;
@@ -78,6 +147,10 @@ p,
 .buttons {
   display: block;
   margin-top: 0;
+}
+.player.active{
+  background-color: #ffd700;
+  transition: 0.3s;
 }
 button {
   padding: 15px 30px;
@@ -143,6 +216,7 @@ button:hover {
   justify-content: center;
   margin-left: 0; /* Adjust when sidebar opens */
   padding: 20px;
+  padding-top: 0;
   transition: margin-left 0.3s;
 }
 .sidebar.active {
@@ -186,11 +260,20 @@ h1 {
   padding: 0px;
   border-radius: 10px;
 }
-#game-title {
+.top-bar {
+  position: fixed;
+  top: 3%;
+  right: 2%;
+  width: 250px; /* Adjust width */
+  height: 50px;
+  background-color: rgb(86, 81, 81);
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
   display: flex;
   align-items: center;
-  gap: 20px;
-  background-color: rgb(246, 232, 177);
-  border-radius: 5%;
-  box-shadow: 5px 5px 10px gray;
+  justify-content: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
+

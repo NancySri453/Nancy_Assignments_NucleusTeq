@@ -34,12 +34,16 @@
   </header>
   <body>
     <!-- Page Content -->
+    <div class="top-bar">
+      <span>🎯 Target Score: 100</span>
+    </div>
     <div class="content" id="content">
       <div id="game-title">
         <img src="Dice main.png" alt="Dice" style="width: 80px" />
         <h1 style="width: fit-content">ROLL THE DICE</h1>
         <img src="Dice main.png" alt="Dice" style="width: 80px" />
       </div>
+      <p id="diceMessage" style="display: none; font-weight: bold;"></p>
       <div class="Game_Interface">
         <div class="player" id="player1">
           <!-- <input type="text" id = "name1" value = "Player 1"> -->
@@ -56,6 +60,7 @@
           <div class="buttons">
             <button id="Rollbutton">Roll Dice</button>
             <button id="Savebutton">Save Score</button>
+            <img id="Rolling1" src="Animation - 1741257824225.gif" alt="Rolling"/>
           </div>
         </div>
 
@@ -74,6 +79,7 @@
           <div class="buttons">
             <button id="Rollbutton2">Roll Dice</button>
             <button id="Savebutton2">Save Score</button>
+            <img id="Rolling2" src="Animation - 1741257824225.gif" alt="Rolling"/>
           </div>
         </div>
       </div>
@@ -81,8 +87,19 @@
       <div class="reset">
         <button id="Resetbutton">Reset Game</button>
       </div>
+    </div> 
+    <div class="vertical-bar-out"></div>
+    <div class="vertical-bar">
+      <div class="dice-videos">
+        <video id="dice1" src="Dice Number 1.mp4" muted></video>
+        <video id="dice2" src="Dice Number 2.mp4" muted></video>
+        <video id="dice3" src="Dice Number 3.mp4" muted></video>
+        <video id="dice4" src="Dice Number 4.mp4" muted></video>
+        <video id="dice5" src="Dice Number 5.mp4" muted></video>
+        <video id="dice6" src="Dice Number 6.mp4" muted></video>
+      </div>
+      <p>Score : <span id ="score-display"></span></p>
     </div>
-
     <script src="script.js"></script>
   </body>
 </html>
