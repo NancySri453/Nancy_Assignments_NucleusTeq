@@ -13,11 +13,33 @@ const saveButton2 = document.getElementById("Savebutton2");
 const resetButton = document.getElementById("Resetbutton");
 let colorInterval;
 
+const audio_button = document.getElementById("audioButton");
+const audio = document.getElementById("backgroundAudio");
+const dice_roll_audio = document.getElementById("dice_rolling_sound");
+const save_score = document.getElementById("score_save_sound");
+const winner_sound = document.getElementById("Winner_sound");
+
 // Initialize effect for Player 1 at game start
 highlightActivePlayer();
 
 document.getElementById("player1").classList.add("active");
 
+//Play audio on page load
+window.addEventListener("load", () => {
+  audio.play();
+  audio_button.textContent = "🔇 Mute Audio";
+});
+
+// Toggle button functionality
+audio_button.addEventListener("click", () => {
+  if (audio.paused) {
+      audio.play();
+      audio_button.textContent = "🔇 Mute Audio";
+  } else {
+      audio.pause();
+      audio_button.textContent = "🔈 Play Audio";
+  }
+});
 function startColorEffect(button) {
   let colors = ["red", "blue"];
   let index = 0;
@@ -74,6 +96,7 @@ roll1.addEventListener("click", () => {
   console.log(dice);
   let selectedVideo = videos[randomIndex];
   selectedVideo.style.display = "block";
+  dice_roll_audio.play();
   selectedVideo.play();
   setTimeout(() => {
     document.getElementById("score-display").innerHTML=dice;
@@ -109,6 +132,7 @@ roll2.addEventListener("click", () => {
   console.log(dice);
   let selectedVideo = videos[randomIndex];
   selectedVideo.style.display = "block";
+  dice_roll_audio.play();
   selectedVideo.play();
   setTimeout(() => {
     document.getElementById("score-display").innerHTML=dice;
@@ -129,12 +153,15 @@ saveButton1.addEventListener("click", () => {
   if (!gamePlaying) return;
 
   stopColorEffect(roll1);
+  save_score.play();
 
   score1 += currentScore;
   document.getElementById("score1").textContent = score1;
 
   if (score1 >= 100) {
     winner.classList.add("active2");
+    audio.pause();
+    winner_sound.play();
     winner.textContent = `${player1name || "Player 1"} Wins!`;
     gamePlaying = false;
   } else {
@@ -148,12 +175,15 @@ saveButton2.addEventListener("click", () => {
   if (!gamePlaying) return;
 
   stopColorEffect(roll2);
+  save_score.play();
 
   score2 += currentScore;
   document.getElementById("score2").textContent = score2;
 
   if (score2 >= 100) {
     winner.classList.add("active2");
+    audio.pause();
+    winner_sound.play();
     winner.textContent = `${player2name || "Player 2"} Wins!`;
     gamePlaying = false;
   } else {

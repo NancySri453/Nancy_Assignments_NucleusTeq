@@ -34,9 +34,34 @@
   </header>
   <body>
     <!-- Page Content -->
-    <div class="top-bar">
-      <span>🎯 Target Score: 100</span>
+    <div class="top-right">
+      <div class="top-bar">
+        <span>🎯 Target Score: 100</span>
+      </div>
+      <!-- Audio Element (Hidden) -->
+      <audio id="backgroundAudio" loop>
+        <source src="game_audio.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+      </audio>
+      <!--Toggle Button-->
+      <div>
+        <button id="audioButton">🔈 Play Audio</button>
+      </div>
+
+      <!--Dice roll soundtrack-->
+      <audio id ="dice_rolling_sound">
+        <source src="dice-rolling_soundtrack.mp3" type="audio/mp3">
+      </audio>
+      <!--Saved score sound-->
+      <audio id="score_save_sound">
+        <source src="Save_button_audio.mp3" type="audio/mp3">
+      </audio>
+      <!--Winning Game Sound-->
+      <audio id="Winner_sound">
+        <source src="winning_sound.mp3" type="audio/mp3">
+      </audio>
     </div>
+
     <div class="content" id="content">
       <div id="game-title">
         <img src="Dice main.png" alt="Dice" style="width: 80px" />
@@ -91,12 +116,12 @@
     <div class="vertical-bar-out"></div>
     <div class="vertical-bar">
       <div class="dice-videos">
-        <video id="dice1" src="Dice Number 1.mp4" muted></video>
-        <video id="dice2" src="Dice Number 2.mp4" muted></video>
-        <video id="dice3" src="Dice Number 3.mp4" muted></video>
-        <video id="dice4" src="Dice Number 4.mp4" muted></video>
-        <video id="dice5" src="Dice Number 5.mp4" muted></video>
-        <video id="dice6" src="Dice Number 6.mp4" muted></video>
+        <video id="dice1" src="Dice Number_1.mp4" muted></video>
+        <video id="dice2" src="Dice Number_2.mp4" muted></video>
+        <video id="dice3" src="Dice Number_3.mp4" muted></video>
+        <video id="dice4" src="Dice Number_4.mp4" muted></video>
+        <video id="dice5" src="Dice Number_5.mp4" muted></video>
+        <video id="dice6" src="Dice Number_6.mp4" muted></video>
       </div>
       <p>Score : <span id ="score-display"></span></p>
     </div>
