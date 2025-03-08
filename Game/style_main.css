@@ -14,7 +14,7 @@ body {
   animation: moveBackground 40s linear infinite;
   box-sizing: border-box;
 }
-.vertical-bar-out{
+.vertical-bar-right{
   position: fixed;
   top: 0;
   right: 0;
@@ -30,10 +30,51 @@ body {
   filter: blur(2px);
   border:2px solid #333;
 }
-.vertical-bar{
+.vertical-bar-left{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 100vh;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 5px;
+  z-index: -1;
+  filter: blur(2px);
+  border:2px solid #333;
+}
+.vertical-bar-r{
   position: fixed;
   top: 0;
   right: 0;
+  width: 300px; 
+  height: 100vh;
+  /* background-color: white; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 5px;
+  z-index: -1;
+  p{
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: xx-large;
+    width: 300px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(1, 1, 1);
+    transition: background-color 0.3s ease;
+  }
+}
+.vertical-bar-l{
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 300px; 
   height: 100vh;
   /* background-color: white; */

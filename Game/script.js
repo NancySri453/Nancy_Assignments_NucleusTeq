@@ -28,6 +28,8 @@ document.getElementById("player1").classList.add("active");
 window.addEventListener("load", () => {
   audio.play();
   audio_button.textContent = "🔇 Mute Audio";
+
+  saveButton2.disabled = true;
 });
 
 // Toggle button functionality
@@ -47,7 +49,7 @@ function startColorEffect(button) {
   colorInterval = setInterval(() => {
       button.style.backgroundColor = colors[index];
       index = (index + 1) % colors.length; // Loop through colors
-  }, 500); // Change color every 500ms
+  }, 500); 
 }
 
 // Function to stop color change effect and reset color
@@ -59,11 +61,15 @@ function stopColorEffect(button) {
 // Highlight the active player's roll button
 function highlightActivePlayer() {
   if (player1) {
+      roll1.disabled = false;
+      saveButton1.disabled=false;
       startColorEffect(roll1);
-      // stopColorEffect(roll2);
+      saveButton2.disabled=true;
   } else {
-      startColorEffect(roll2);
-      // stopColorEffect(roll1);
+    roll2.disabled = false;
+    saveButton2.disabled=false;
+    startColorEffect(roll2);
+    saveButton1.disabled=true;
   }
 }
 
@@ -84,13 +90,12 @@ roll1.addEventListener("click", () => {
   stopColorEffect(roll1);
 
   let videos = document.querySelectorAll("video");
-    // Hide all videos first
-    videos.forEach(video => {
-        video.style.display = "none";
-        video.pause();
-        video.currentTime = 0;
-    });
-
+  // Hide all videos first
+  videos.forEach(video => {
+      video.style.display = "none";
+      video.pause();
+      video.currentTime = 0;
+  });
   let dice = Math.floor(Math.random() * 6) + 1;
   let randomIndex= dice-1;
   console.log(dice);
@@ -99,9 +104,9 @@ roll1.addEventListener("click", () => {
   dice_roll_audio.play();
   selectedVideo.play();
   setTimeout(() => {
-    document.getElementById("score-display").innerHTML=dice;
+    document.getElementsByClassName("score-display").innerHTML=dice;
   }, 700);
-  
+
   if (dice === 1) {
     currentScore = 0;
     showDiceMessage(player1name || "Player 1");
@@ -110,6 +115,9 @@ roll1.addEventListener("click", () => {
     currentScore += dice;
     document.getElementById("current1").textContent = currentScore;
   }
+
+  roll1.disabled = true;
+  // saveButton1.disabled=false;
 });
 
 // Roll dice for Player 2
@@ -138,6 +146,7 @@ roll2.addEventListener("click", () => {
     document.getElementById("score-display").innerHTML=dice;
   }, 700);
 
+
   if (dice === 1) {
     currentScore = 0;
     showDiceMessage(player1name || "Player 1");
@@ -146,6 +155,7 @@ roll2.addEventListener("click", () => {
     currentScore += dice;
     document.getElementById("current2").textContent = currentScore;
   }
+  roll2.disabled = true;
 });
 
 // Save score for Player 1
@@ -208,6 +218,9 @@ resetButton.addEventListener("click", () => {
   winner.classList.remove("active2");
 
   document.getElementById("player1").classList.toggle("active", player1);
+  document.getElementById("player2").classList.toggle("active", player2);
+
+  highlightActivePlayer();
 });
 
 // Switch players
