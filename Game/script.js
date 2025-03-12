@@ -214,9 +214,9 @@ resetButton.addEventListener("click", () => {
   player1 = true;
   player2 = false;
 
-  // if(player2=true){
-  //   stopColorEffect(roll2);
-  // }
+  if(player2=true){
+    stopColorEffect(roll2);
+  }
 
   document.getElementById("score1").textContent = "0";
   document.getElementById("score2").textContent = "0";
