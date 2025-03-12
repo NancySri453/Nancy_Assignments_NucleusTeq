@@ -7,7 +7,7 @@ let player2 = false;
 
 const roll1 = document.getElementById("Rollbutton");
 const roll2 = document.getElementById("Rollbutton2");
-const winner = document.getElementById("Winner");
+const winner = document.getElementById("winner-name");
 const saveButton1 = document.getElementById("Savebutton");
 const saveButton2 = document.getElementById("Savebutton2");
 const resetButton = document.getElementById("Resetbutton");
@@ -22,13 +22,12 @@ const winner_sound = document.getElementById("Winner_sound");
 // Initialize effect for Player 1 at game start
 highlightActivePlayer();
 
-document.getElementById("player1").classList.add("active");
+// document.getElementById("player1").classList.add("active");
 
 //Play audio on page load
 window.addEventListener("load", () => {
   audio.play();
   audio_button.textContent = "🔇 Mute Audio";
-
   saveButton2.disabled = true;
 });
 
@@ -54,8 +53,8 @@ function startColorEffect(button) {
 
 // Function to stop color change effect and reset color
 function stopColorEffect(button) {
-  clearInterval(colorInterval); // Stop interval
-  button.style.backgroundColor = ""; // Reset to default
+  clearInterval(colorInterval); 
+  button.style.backgroundColor = ""; 
 }
 
 // Highlight the active player's roll button
@@ -103,9 +102,6 @@ roll1.addEventListener("click", () => {
   selectedVideo.style.display = "block";
   dice_roll_audio.play();
   selectedVideo.play();
-  setTimeout(() => {
-    document.getElementsByClassName("score-display").innerHTML=dice;
-  }, 700);
 
   if (dice === 1) {
     currentScore = 0;
@@ -117,8 +113,17 @@ roll1.addEventListener("click", () => {
   }
 
   roll1.disabled = true;
-  // saveButton1.disabled=false;
 });
+
+//Winner Pop Up
+function showWinner(player) {
+  document.getElementById("winnerPopup").style.display = "flex";
+}
+
+//Close winner popup 
+function closePopup() {
+  document.getElementById("winnerPopup").style.display = "none";
+}
 
 // Roll dice for Player 2
 roll2.addEventListener("click", () => {
@@ -142,10 +147,6 @@ roll2.addEventListener("click", () => {
   selectedVideo.style.display = "block";
   dice_roll_audio.play();
   selectedVideo.play();
-  setTimeout(() => {
-    document.getElementById("score-display").innerHTML=dice;
-  }, 700);
-
 
   if (dice === 1) {
     currentScore = 0;
@@ -169,10 +170,11 @@ saveButton1.addEventListener("click", () => {
   document.getElementById("score1").textContent = score1;
 
   if (score1 >= 100) {
-    winner.classList.add("active2");
+    showWinner(player1name);
     audio.pause();
     winner_sound.play();
-    winner.textContent = `${player1name || "Player 1"} Wins!`;
+    //Winner name 
+    document.getElementById("winner-name").innerHTML = `🎉 ${player1name || "Player 1"} Wins! 🎉`;
     gamePlaying = false;
   } else {
     currentScore = 0;
@@ -186,15 +188,15 @@ saveButton2.addEventListener("click", () => {
 
   stopColorEffect(roll2);
   save_score.play();
-
   score2 += currentScore;
   document.getElementById("score2").textContent = score2;
 
-  if (score2 >= 100) {
-    winner.classList.add("active2");
+  if (score2 >= 10) {
+    showWinner(player2name);
     audio.pause();
     winner_sound.play();
-    winner.textContent = `${player2name || "Player 2"} Wins!`;
+    //Winner name 
+    document.getElementById("winner-name").innerHTML = `🎉 ${player2name || "Player 2"} Wins! 🎉`;
     gamePlaying = false;
   } else {
     currentScore = 0;
@@ -208,17 +210,18 @@ resetButton.addEventListener("click", () => {
   score2 = 0;
   currentScore = 0;
   gamePlaying = true;
+
   player1 = true;
   player2 = false;
+
+  // if(player2=true){
+  //   stopColorEffect(roll2);
+  // }
 
   document.getElementById("score1").textContent = "0";
   document.getElementById("score2").textContent = "0";
   document.getElementById("current1").textContent = "0";
   document.getElementById("current2").textContent = "0";
-  winner.classList.remove("active2");
-
-  document.getElementById("player1").classList.toggle("active", player1);
-  document.getElementById("player2").classList.toggle("active", player2);
 
   highlightActivePlayer();
 });
@@ -231,9 +234,6 @@ function switchPlayer() {
 
   document.getElementById("current1").textContent = player1 ? currentScore : "0";
   document.getElementById("current2").textContent = player2 ? currentScore : "0";
-
-  document.getElementById("player1").classList.toggle("active", player1);
-  document.getElementById("player2").classList.toggle("active", player2);
 
   highlightActivePlayer();
 }
@@ -257,30 +257,5 @@ function showDiceMessage(player) {
 
   setTimeout(() => {
       message.style.display = "none";
-  }, 2000); // Hide message after 2 seconds
+  }, 2000);
 }
-
-// document.getElementById("Rollbutton1").addEventListener("click", function() {
-//   document.getElementById("Rolling1").style.display = "inline"; // Show animation
-// });
-// document.getElementById("Rolling1").style.display = "inline"; // Show animation
-// setTimeout(() => {
-//   document.getElementById("Rolling1").style.display = "none"; // Hide after 2s
-// }, 2000);
-
-// document.getElementById("Rolling2").style.display = "inline"; // Show animation
-// setTimeout(() => {
-//   document.getElementById("Rolling2").style.display = "none"; // Hide after 2s
-// }, 2000);
-
-// document.getElementById("Savebutton1").addEventListener("click", function() {
-//   document.getElementById("Rolling1").style.display = "none"; // Hide animation
-// });
-
-// document.getElementById("Rollbutton2").addEventListener("click", function() {
-//   document.getElementById("Rolling2").style.display = "inline"; // Show animation
-// });
-
-// document.getElementById("Savebutton2").addEventListener("click", function() {
-//   document.getElementById("Rolling2").style.display = "none"; // Hide animation
-// });

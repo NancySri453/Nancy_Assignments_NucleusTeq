@@ -8,7 +8,7 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Trirong"
     />
-    <link rel="stylesheet" href="style_main.css" />
+    <link rel="stylesheet" href="style1.css" />
   </head>
   <header>
     <button class="hamburger" type="button" onclick="toggleSidebar()">
@@ -40,7 +40,7 @@
       </div>
       <!-- Audio Element (Hidden) -->
       <audio id="backgroundAudio" loop>
-        <source src="game_audio.mp3" type="audio/mp3">
+        <source src="Audio/game_audio.mp3" type="audio/mp3">
         Your browser does not support the audio element.
       </audio>
       <!--Toggle Button-->
@@ -50,28 +50,26 @@
 
       <!--Dice roll soundtrack-->
       <audio id ="dice_rolling_sound">
-        <source src="dice-rolling_soundtrack.mp3" type="audio/mp3">
+        <source src="Audio/dice-rolling_soundtrack.mp3" type="audio/mp3">
       </audio>
       <!--Saved score sound-->
       <audio id="score_save_sound">
-        <source src="Save_button_audio.mp3" type="audio/mp3">
+        <source src="Audio/Save_button_audio.mp3" type="audio/mp3">
       </audio>
       <!--Winning Game Sound-->
       <audio id="Winner_sound">
-        <source src="winning_sound.mp3" type="audio/mp3">
+        <source src="Audio/winning_sound.mp3" type="audio/mp3">
       </audio>
     </div>
 
     <div class="content" id="content">
       <div id="game-title">
-        <img src="Dice main.png" alt="Dice" style="width: 80px" />
+        <img src="Image and Videos/Dice main.png" alt="Dice" style="width: 80px" />
         <h1 style="width: fit-content">ROLL THE DICE</h1>
-        <img src="Dice main.png" alt="Dice" style="width: 80px" />
+        <img src="Image and Videos/Dice main.png" alt="Dice" style="width: 80px" />
       </div>
-      <p id="diceMessage" style="display: none; font-weight: bold;"></p>
       <div class="Game_Interface">
         <div class="player" id="player1">
-          <!-- <input type="text" id = "name1" value = "Player 1"> -->
           <h2
             style="font-family: poppins; font-size: xx-large"
             id="Player_1"
@@ -85,12 +83,17 @@
           <div class="buttons">
             <button id="Rollbutton">Roll Dice</button>
             <button id="Savebutton">Save Score</button>
-            <img id="Rolling1" src="Animation - 1741257824225.gif" alt="Rolling"/>
           </div>
         </div>
-
+        <div class="dice-videos-r">
+          <video id="dice1" src="Image and Videos/Dice Number_1.mp4" muted></video>
+          <video id="dice2" src="Image and Videos/Dice Number_2.mp4" muted></video>
+          <video id="dice3" src="Image and Videos/Dice Number_3.mp4" muted></video>
+          <video id="dice4" src="Image and Videos/Dice Number_4.mp4" muted></video>
+          <video id="dice5" src="Image and Videos/Dice Number_5.mp4" muted></video>
+          <video id="dice6" src="Image and Videos/Dice Number_6.mp4" muted></video>
+        </div>
         <div class="player" id="player2">
-          <!-- <input type="text" id = "name2" value = "Player 2"> -->
           <h2
             style="font-family: poppins; font-size: xx-large"
             id="Player_2"
@@ -104,27 +107,21 @@
           <div class="buttons">
             <button id="Rollbutton2">Roll Dice</button>
             <button id="Savebutton2">Save Score</button>
-            <img id="Rolling2" src="Animation - 1741257824225.gif" alt="Rolling"/>
           </div>
         </div>
       </div>
-      <div class="Winner_popup" id="Winner"></div>
+      <div id="winnerPopup" style="display: none;">
+        <div class="popup-content">
+          <h2 id="winner-name"></h2>
+          <p>Congratulations! You won the game.</p>
+          <button onclick="location.reload()">Play again</button>
+        </div>
+      </div>
       <div class="reset">
+        <p id="diceMessage" style="display: none; font-weight: bold; font-size: x-large;"></p>
         <button id="Resetbutton">Reset Game</button>
       </div>
     </div> 
-    <div class="vertical-bar-right"></div>
-    <div class="vertical-bar-r">
-      <div class="dice-videos-r">
-        <video id="dice1" src="Dice Number_1.mp4" muted></video>
-        <video id="dice2" src="Dice Number_2.mp4" muted></video>
-        <video id="dice3" src="Dice Number_3.mp4" muted></video>
-        <video id="dice4" src="Dice Number_4.mp4" muted></video>
-        <video id="dice5" src="Dice Number_5.mp4" muted></video>
-        <video id="dice6" src="Dice Number_6.mp4" muted></video>
-      </div>
-      <p>Score : <span class ="score-display"></span></p>
-    </div>
     <script src="script.js"></script>
   </body>
 </html>

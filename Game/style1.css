@@ -1,0 +1,225 @@
+.Game_Interface{
+    width:90%;
+    display : grid;
+    grid-template-columns: repeat(3, 1fr);
+    text-align: center;
+    align-items : center;
+    border: 2px solid black;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px 3px grey;
+    margin-left : 60px;
+    margin-top: 20px;
+}
+.dice-videos-r{
+    display: grid;
+    z-index : -1;
+}
+.reset{
+    margin-top: 20px;
+    margin-left: 43%;
+}
+video{
+display: none;
+max-width: 100%;
+}
+#audioButton {
+position: flex;
+top: 0;
+right: 0;
+padding: 5px 5px;
+font-size: 10px;
+cursor: pointer;
+border: 2px solid #000;
+border-radius: 5px;
+}
+#game-title {
+/* position: relative; */
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 20px;
+background-color: rgb(246, 232, 177);
+box-shadow: 5px 5px 10px rgb(15, 14, 14);
+width: 100%;
+margin-top : 0;
+}
+#diceMessage {
+color: red;
+font-family: 'Times New Roman', Times, serif;
+padding: 5px;
+}
+button {
+padding: 15px 30px;
+font-size: 18px;
+background-color: #007bff;
+color: white;
+border: none;
+border-radius: 8px;
+cursor: pointer;
+transition: background-color 0.3s;
+box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+button:hover {
+background-color: #7bc486;
+}
+.sidebar {
+height: 100vh;
+width: 0;
+position: fixed;
+top: 0;
+left: 0;
+background-color: #333;
+overflow-x: hidden;
+transition: 0.3s;
+padding-top: 60px;
+z-index: 1000;
+}
+.sidebar a {
+display: block;
+color: rgb(255, 255, 255);
+padding: 15px 20px;
+text-decoration: none;
+font-size: 18px;
+}
+.sidebar a:hover {
+background-color: #575757;
+border-radius: 5px;
+}
+.hamburger {
+font-size: 30px;
+cursor: pointer;
+position: fixed;
+top: 15px;
+left: 15px;
+background: none;
+border: none;
+color: rgb(255, 255, 255);
+z-index: 1000;
+border: 3px solid #ff0000;
+}
+.hamburger div {
+width: 35px;
+height: 5px;
+background-color: rgb(0, 0, 0);
+margin: 6px 0;
+}
+.sidebar.active {
+width: 250px;
+}
+.content.active {
+margin-left: 250px;
+}
+.overlay {
+display: none;
+position: fixed;
+top: 0;
+left: 0;
+width: 100vw;
+height: 100vh;
+background: rgba(0, 0, 0, 0.5);
+z-index: 999;
+}
+.overlay.active {
+display: block;
+}
+h1 {
+font-family: "Poppins", serif;
+}
+.Head_View {
+text-align: center;
+display: flex;
+align-items: center;
+margin: auto;
+gap: 0px;
+background: #ffff;
+padding: 0px;
+border-radius: 10px;
+}
+.top-bar {
+font-size: 20px;
+font-weight: bold;
+font-family:Georgia, 'Times New Roman', Times, serif;
+background: rgba(0, 0, 0, 0.7) ;
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+border-radius: 8px;
+padding: 5px 10px;
+z-index : 1;
+span{
+    color:#fff;
+}
+}
+.top-right {
+position: fixed;
+top: 10px;
+right: 10px;
+display: flex;  /* Align items in a row */
+align-items: center; /* Vertically center */
+gap: 10px; /* Space between elements */
+padding: 10px;
+}
+#audioButton {
+font-size: 10px;
+cursor: pointer;
+background-color: #4789fc;
+}
+
+/* Overlay (Dimming Background) */
+#winnerPopup {
+    display: none; /* Initially hidden */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensures it appears on top */
+}
+
+/* Pop-up Box */
+.popup-content {
+    background: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
+    width: 300px;
+    animation: popupAnimation 0.3s ease-in-out;
+}
+
+/* Heading */
+.popup-content h2 {
+    color: #28a745; /* Green color for winner */
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* Buttons */
+.popup-content button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.popup-content button:hover {
+    background: #0056b3;
+}
+
+/* Animation */
+@keyframes popupAnimation {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
