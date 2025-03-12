@@ -1,0 +1,94 @@
+1. Create a new repository
+
+Step 1 : Create a new repository on your github
+Step 2 : Copy its HTTPS link 
+Step 3 : Clone it on your local system
+GIT COMMAND : 
+        git clone <repository link>
+OR
+On you local system, after creating the file 
+Step 1 : Create a new folder on local system
+    mkdir <Folder>
+    cd <Folder>
+Step 2 : Initialize the repository 
+    git init
+Step 3 : Add Github repository link as origin on your local system
+    git remote add origin <repository link>
+
+To check origin 
+    git remote -v 
+
+2. Create new file 
+Method 1 : Create new file on Github
+Method 2 : On git bash : 
+    $touch <file_name>
+    $echo "#NucleusTeq" <file_name>
+
+3. Create a Branch
+GIT COMMAND : 
+    git branch <branch name>
+
+
+4. Make changes to new branch 
+GIT COMMAND : 
+    -Switch to new branch : 
+    git checkout <new branch name>
+
+    -Make changes to your file 
+
+    -Stage the changes 
+    git add <file name>
+    or git add .
+
+    -Commit the changes
+    git commit -m "Added new feature"
+
+    -Push the new branch to Github
+    git push origin <branch name>
+
+5. Create another branch 
+GIT COMMAND : 
+    git branch <another branch name>
+
+6. Merge Branches
+    - Switch to the branch where you want to make changes
+    GIT COMMAND : 
+        git checkout main
+        or 
+        git switch main
+    - Merge the other branch into current branch 
+    GIT COMMAND : 
+        - git merge <branch name>
+
+7. Pull changes from remote
+GIT COMMAND : 
+    - git pull origin main 
+
+    - git pull --rebase origin main
+
+8. View git log and history.
+GIT COMMAND : 
+    - git log
+    shows the history of commits in Git repository
+
+9. Git Status and Staging 
+Git status : shows current status of file 
+GIT COMMAND : 
+    git status
+Staging : To have a modified file marked to go into next commit snapshot
+GIT COMMAND : 
+    git add <file name>
+    or 
+    git add .
+
+10. Revert and Reset
+GIT COMMAND : 
+    git revert <commit-hash>
+
+    git reset --hard <commit-hash>
+
+
+    
+
+
+
