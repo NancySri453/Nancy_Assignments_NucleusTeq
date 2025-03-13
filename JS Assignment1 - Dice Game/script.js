@@ -22,8 +22,6 @@ const winner_sound = document.getElementById("Winner_sound");
 // Initialize effect for Player 1 at game start
 highlightActivePlayer();
 
-// document.getElementById("player1").classList.add("active");
-
 //Play audio on page load
 window.addEventListener("load", () => {
   audio.play();
@@ -214,9 +212,9 @@ resetButton.addEventListener("click", () => {
   player1 = true;
   player2 = false;
 
-  if(player2=true){
-    stopColorEffect(roll2);
-  }
+  // if(player2=true){
+  //   stopColorEffect(roll2);
+  // }
 
   document.getElementById("score1").textContent = "0";
   document.getElementById("score2").textContent = "0";
