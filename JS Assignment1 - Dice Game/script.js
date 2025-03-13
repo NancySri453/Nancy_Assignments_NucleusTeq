@@ -191,7 +191,7 @@ saveButton2.addEventListener("click", () => {
   score2 += currentScore;
   document.getElementById("score2").textContent = score2;
 
-  if (score2 >= 10) {
+  if (score2 >= 100) {
     showWinner(player2name);
     audio.pause();
     winner_sound.play();
