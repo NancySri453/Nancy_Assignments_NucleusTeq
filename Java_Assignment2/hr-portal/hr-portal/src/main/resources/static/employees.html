@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HR Portal</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="centered" style="background-color: rgb(254, 254, 242); border-radius: 10px; border: 2px solid black; box-shadow: 2px 2px 2px 0px grey;">
+            Employee Management
+        </h1>
+
+        <!-- Navigation Links -->
+        <p class="centered">
+            <button class="toggle-link" onclick="showAddEmployeeForm()" style=" color: white;">Add Employee</button>
+        </p>
+
+        <!-- Employee List Section -->
+        <div id="employeeListSection" class="section active">
+            <h2 class="centered">Employee List</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Employee ID</th>
+                        <th>Name</th>
+                        <th>Department</th>
+                        <th>Email</th>
+                        <th>Salary</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="employeeTable">
+                    <!-- Employee rows will be dynamically inserted here -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Add Employee Section -->
+        <div id="addEmployeeSection" class="section">
+            <h2 class="centered">Add Employee</h2>
+            <form id="addEmployeeForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required><br><br>
+                <label for="department">Department:</label>
+                <select id="department" name="department" required>
+                    <option value="HR">HR</option>
+                    <option value="Finance">Finance</option>
+                    <option value="IT">IT</option>
+                    <option value="Marketing">Marketing</option>
+                    <option value="Operations">Operations</option>
+                </select><br><br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required><br><br>
+                <label for="salary">Salary:</label>
+                <input type="number" id="salary" name="salary" required><br><br>
+                <button type="submit">Save</button>
+            </form>
+            <p id="addEmployeeMessage"></p>
+            <p><span class="toggle-link" onclick="showEmployeeList()">Back to Employee List</span></p>
+        </div>
+
+        <!-- Edit Employee Section -->
+        <div id="editEmployeeSection" class="section">
+            <h2 class="centered">Edit Employee</h2>
+            <form id="editEmployeeForm">
+                <label for="editName">Name:</label>
+                <input type="text" id="editName" name="name" required><br><br>
+                <label for="editDepartment">Department:</label>
+                <select id="editDepartment" name="department" required>
+                    <option value="HR">HR</option>
+                    <option value="Finance">Finance</option>
+                    <option value="IT">IT</option>
+                    <option value="Marketing">Marketing</option>
+                    <option value="Operations">Operations</option>
+                </select><br><br>
+                <label for="editEmail">Email:</label>
+                <input type="email" id="editEmail" name="email" required><br><br>
+                <label for="editSalary">Salary:</label>
+                <input type="number" id="editSalary" name="salary" required><br><br>
+                <button type="submit">Update</button>
+            </form>
+            <p id="editEmployeeMessage"></p>
+            <p><span class="toggle-link" onclick="showEmployeeList()">Back to Employee List</span></p>
+        </div>
+    </div>
+    <!-- Include the shared JavaScript file -->
+    <script src="/js/main.js"></script>
+</body>
+</html>

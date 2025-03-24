@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HR Portal</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <!-- Login Form -->
+    <div id="loginFormContainer" class="form-container active">
+        <h1 class="centered">HR Portal</h1>
+        <h2 class="centered">Login</h2>
+        <form id="loginForm">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required><br><br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br><br>
+            <button type="submit">Login</button>
+        </form>
+
+        <p id="loginMessage"></p>
+
+        <!-- Toggle to Sign Up Form -->
+        <div class="centered"><p>Don't have an account? <span class="toggle-link" onclick="showSignUpForm()">Sign Up</span></p></div>
+    </div>
+
+    <!-- Sign Up Form -->
+    <div id="signupFormContainer" class="form-container">
+        <h2 class="centered">HR Sign Up</h2>
+        <form id="signupForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+            <label for="newUsername">Username:</label>
+            <input type="text" id="newUsername" name="newUsername" required><br><br>
+            <label for="newPassword">Password:</label>
+            <input type="password" id="newPassword" name="newPassword" required><br><br>
+            <button type="submit">Sign Up</button>
+        </form>
+
+        <p id="signupMessage"></p>
+
+        <!-- Toggle to Login Form -->
+        <div class="centered"><p>Already have an account? <span class="toggle-link" onclick="showLoginForm()">Log In</span></p></div>
+    </div>
+    <!-- Include the shared JavaScript file -->
+    <script src="/js/main.js"></script>
+</body>
+</html>
